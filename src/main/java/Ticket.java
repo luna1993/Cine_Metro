@@ -17,8 +17,9 @@ public class Ticket {
 
     public static void main(String[] args){
         Ticket t=new Ticket();
-        t.GenerarTicket();
+      //  t.GenerarTicket();
     }
+    /*
     public void GenerarTicket(){
         Ticket t=new Ticket();
         Cliente c=new Cliente();
@@ -42,7 +43,7 @@ public class Ticket {
         }else{
             this.IdProducto=0;
         }
-    }
+    }*/
 
     public void CrearTicket(String IdTicket, String IdCliente, int IdCartelera, int IdProducto){
         System.out.println("Su ticket es: "+IdTicket);
