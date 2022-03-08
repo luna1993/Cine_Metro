@@ -26,6 +26,11 @@
             <version>7.4.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -35,7 +40,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Cine_Metro</mainClass>
+                            <mainClass>com.Cine_Metro.Cine_Metro</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -67,7 +72,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>Cine_Metro</mainClass>
+                            <mainClass>com.Cine_Metro.Cine_Metro</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
