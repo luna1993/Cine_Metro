@@ -28,7 +28,7 @@ public class Usuario {
         usu.setRol(rol);
         usuarioList.add(usu);
     }
-    public void llenadoUsuario(){
+    public  void llenadoUsuario(){
         crearUsuario("kodigo001","eladmin@gmail.com","admin123","Juanito","admin");
         crearUsuario("kodigo002","eluser@gmail.com","user123","pedro","cliente");
     }

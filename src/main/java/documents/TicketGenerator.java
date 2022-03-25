@@ -12,11 +12,10 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.util.List;
-
+@Getter
+@Setter
 public class TicketGenerator implements ExportTXT{
-    @Getter @Setter
     String ticketText;
-    @Getter @Setter
     Ticket ticket;
 
     public TicketGenerator(Ticket ticketsent){

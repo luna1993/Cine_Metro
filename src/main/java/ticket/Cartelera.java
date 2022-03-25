@@ -7,14 +7,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@Setter
 public class Cartelera {
 
-  @Getter @Setter
   private int idProgramacion;
-  @Getter @Setter
   private int idPelicula;
-  @Getter @Setter
   private LocalDateTime horarioCartelera;
 
   private static List<Cartelera> carteleraList = new ArrayList<>();

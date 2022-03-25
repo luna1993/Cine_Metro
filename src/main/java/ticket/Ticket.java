@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 import static utils.ClearScreen.clearScreen;
 
-
 @Getter
 @Setter
 @ToString

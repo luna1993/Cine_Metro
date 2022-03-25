@@ -5,17 +5,13 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@Setter
 public class Pelicula {
-  @Getter @Setter
   private int idPelicula;
-  @Getter @Setter
   private String nombrePelicula;
-  @Getter @Setter
   private int idGenero;
-  @Getter @Setter
   private double duracion;
-  @Getter @Setter
   private int clasificacion;
 
   private static List<Pelicula> peliculasList = new ArrayList<>();
@@ -32,6 +28,7 @@ public class Pelicula {
     añadirPelicula(4, "No mires arriba", 4,1.47, 1);
   }
 
+  //
   public void añadirPelicula(int idPeli, String nombre, int idGenre, double length, int clasification){
     Pelicula peli = new Pelicula();
     peli.setIdPelicula(idPeli);

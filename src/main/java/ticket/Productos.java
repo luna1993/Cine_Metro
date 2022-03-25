@@ -31,7 +31,7 @@ public class Productos {
         añadirProducto(5, "Frozen", "Bebida Individual", 3.75);
     }
     
-    public void añadirProducto(int IdProducto, String NombreProducto, String TipoProducto, double Precio) {
+    public static void añadirProducto(int IdProducto, String NombreProducto, String TipoProducto, double Precio) {
         Productos producto = new Productos();
         producto.setIdProducto(IdProducto);
         producto.setNombreProducto(NombreProducto);

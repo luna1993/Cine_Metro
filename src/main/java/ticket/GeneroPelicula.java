@@ -5,12 +5,11 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Getter
+@Setter
 public class GeneroPelicula {
 
-  @Getter @Setter
   private int idGeneroPelicula;
-  @Getter @Setter
   private String nombreGenero;
 
   private static List<GeneroPelicula> generosList = new ArrayList<>();

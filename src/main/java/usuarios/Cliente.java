@@ -8,6 +8,7 @@ import ticket.Ticket;
 import java.util.Scanner;
 
 import static utils.ClearScreen.clearScreen;
+import static utils.ClienteMenu.menuCliente;
 
 @Getter
 @Setter
@@ -38,25 +39,16 @@ public class Cliente implements icliente {
         t.setCliente(user);
         Scanner sc=new Scanner(System.in);
         while (true){
-            System.out.println("***********  Bienvenido a Cine Metro  ************");
-            System.out.println("1.Ver Cartelera.");
-            System.out.println("2.Ver Productos de Dulceria.");
-            System.out.println("3.Finalizar compra");
-            System.out.println("4.Salir");
-            System.out.println("**************************************************");
-            System.out.println("Elige una opción: ");
+            menuCliente();
             int opc=sc.nextInt();
             switch (opc){
                 case 1:
-                    clearScreen();
                     t.seleccionarPelicula();
                     break;
                 case 2:
-                    clearScreen();
                     t.comprarProducto();
                     break;
                 case 3:
-                    clearScreen();
                     t.imprimirTicket();
                     t.enviarTicket();
                     sc.nextLine();
@@ -66,7 +58,7 @@ public class Cliente implements icliente {
                     System.out.println("***********  Gracias por visitar Cine Metro  ************");
                     user = null;
                     return;
-            }
+            }clearScreen();
         }
     }
 }

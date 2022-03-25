@@ -2,9 +2,12 @@ package usuarios;
 
 import java.util.Scanner;
 import com.Cine_Metro.Cine_Metro;
+import org.testng.annotations.Test;
 import ticket.Cartelera;
 import ticket.Pelicula;
+import ticket.Productos;
 
+import static utils.AdminMenu.*;
 import static utils.ClearScreen.clearScreen;
 
 public class Administrador implements iAdministrador {
@@ -17,7 +20,6 @@ public class Administrador implements iAdministrador {
                 user = userT;
             }
         }
-
          if (user != null){
             System.out.println("Bienvenido Admin");
             menu();
@@ -26,44 +28,33 @@ public class Administrador implements iAdministrador {
             return false;
         }
     }
+
     public void menu(){
         Scanner sc=new Scanner(System.in);
         Usuario u=new Usuario();
         u.llenadoUsuario();
-        System.out.println("***********  Bienvenido a Cine Metro  ************");
-        System.out.println("1.Gestionar Cartelera.");
-        System.out.println("2.Gestionar Productos.");
-        System.out.println("3.Salir");
-        System.out.println("**************************************************");
-        System.out.println("Elige una opción: ");
+        menuAdmin();
         int opc=sc.nextInt();
         switch (opc){
             case 1:
                 gestionCartelera();
                 break;
             case 2:
-
+                gestionarProducto();
                 break;
             case 3:
                 System.out.println("***********  Gracias por visitar Cine Metro  ************");
                 user = null;
                 return;
-
-        }
+        }clearScreen();
     }
 
     public void gestionCartelera(){
-        clearScreen();
         Scanner sc=new Scanner(System.in);
-        System.out.println("***********Seleccione una opcion**************");
-        System.out.println("1.Añadir Pelicula");
-        System.out.println("2.Quitar pelicula");
-        System.out.println("3.Salir");
-        System.out.println("**********************************************");
+        menupelicula();
         int opc=sc.nextInt();
         switch (opc){
             case 1:
-                clearScreen();
                 System.out.println("Nombre de la pelicula:");
                 String nombre = sc.next();
                 System.out.println("ID de genero:");
@@ -84,7 +75,6 @@ public class Administrador implements iAdministrador {
                 System.out.println("Pelicula añadida");
                 break;
             case 2:
-                clearScreen();
                 System.out.println("Seleccione pelicula a quitar");
                 new Cartelera().imprimirPantalla();
                 int idTemp = sc.nextInt();
@@ -94,7 +84,6 @@ public class Administrador implements iAdministrador {
                         idEstablecido = true;
                     }
                 }
-
                 if(idEstablecido == false && idTemp != 0){
                     System.out.println("Pelicula seleccionada no existe");
                 } else{
@@ -107,6 +96,46 @@ public class Administrador implements iAdministrador {
             default:
                 System.out.println("Opcion no disponible");
                 break;
-        }
+        } clearScreen();
+    }
+    public void gestionarProducto(){
+        Scanner sc=new Scanner(System.in);
+        menuproducto();
+        int opc=sc.nextInt();
+        switch (opc){
+            case 1:
+                System.out.println("Nombre del producto:");
+                String nombrep = sc.next();
+                System.out.println("Tipo de producto:");
+                String tipo = sc.nextLine();
+                System.out.println("Precio del producto:");
+                Double precio = sc.nextDouble();
+                int idProducto = Productos.obtenerProductos().size();
+                new Productos().añadirProducto(idProducto,nombrep,tipo,precio);
+                System.out.println("Producto añadido");
+                break;
+            case 2:
+                System.out.println("Seleccione Producto a quitar");
+                new Productos().imprimirProductos();
+                int idTemp = sc.nextInt();
+                boolean idEstablecido = false;
+                for (Productos disponible : Productos.obtenerProductos()) {
+                    if (disponible.getIdProducto() == idTemp - 1) {
+                        idEstablecido = true;
+                    }
+                }
+                if(idEstablecido == false && idTemp != 0){
+                    System.out.println("Producto seleccionado no existe");
+                } else{
+                    Productos.obtenerProductos().remove(idTemp-1);
+                    System.out.println("Producto eliminado");
+                }
+                break;
+            case 3:
+                return;
+            default:
+                System.out.println("Opcion no disponible");
+                break;
+        } clearScreen();
     }
 }
